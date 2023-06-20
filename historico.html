@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Histórico de Vendas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+
+        .sales-history-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Histórico de Vendas</h1>
+
+    <div class="sales-history-container">
+        <ul id="sales-history-list">
+            <!-- As vendas serão adicionadas dinamicamente aqui -->
+        </ul>
+    </div>
+
+    <script>
+        // Função para obter os resultados finalizados do código "PaginaPrincipalVendas"
+        function getFinishedResults() {
+            // Verifica se há resultados finalizados no armazenamento local
+            if (localStorage.getItem("finishedResults")) {
+                // Recupera os resultados finalizados do armazenamento local
+                return JSON.parse(localStorage.getItem("finishedResults"));
+            } else {
+                return [];
+            }
+        }
+
+        // Exibe os resultados finalizados no histórico de vendas
+        function displaySalesHistory() {
+            var salesHistory = getFinishedResults();
+            var salesHistoryList = document.getElementById("sales-history-list");
+
+            // Limpa a lista de histórico de vendas
+            salesHistoryList.innerHTML = "";
+
+            // Adiciona cada venda ao histórico de vendas
+            salesHistory.forEach(function (sale) {
+                var listItem = document.createElement("li");
+                listItem.textContent = sale.item + " - Valor: R$" + sale.value.toLocaleString("pt-BR");
+
+                salesHistoryList.appendChild(listItem);
+            });
+        }
+
+        // Chama a função para exibir o histórico de vendas ao carregar a página
+        displaySalesHistory();
+    </script>
+</body>
+
+</html>

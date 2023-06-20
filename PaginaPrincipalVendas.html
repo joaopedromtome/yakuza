@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yakuza - Gerente de Vendas</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .box {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .box:focus {
+            border-color: blue;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            margin-right: 10px;
+        }
+
+        .result-container {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .result-card {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .result-card h2 {
+            margin-bottom: 10px;
+        }
+
+        .final-screen {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Adicionando imagem de fundo */
+        body {
+            background-image: url("https://media.tenor.com/kaRCm9ELxKgAAAAC/menhera-chan-chibi.gif");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Estilo do botão de Tabela de Preços */
+        .header-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilo do botão Calcular */
+        .calculate-button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .calculate-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilo do botão Tabela */
+        .table-button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .table-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Alinhamento dos botões */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Estilo do botão Histórico */
+        .history-button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .history-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Yakuza - Gerente de Vendas</h1>
+        <div id="form-container">
+            <div class="form-group">
+                <label for="fajuta-input">Fajuta:</label>
+                <input type="number" id="fajuta-input" class="box">
+            </div>
+            <div class="form-group">
+                <label for="five-seven-input">Five-Seven:</label>
+                <input type="number" id="five-seven-input" class="box">
+            </div>
+            <div class="form-group">
+                <label for="mp5-input">MP5:</label>
+                <input type="number" id="mp5-input" class="box">
+            </div>
+            <div class="form-group">
+                <label for="tec-9-input">Tec-9:</label>
+                <input type="number" id="tec-9-input" class="box">
+            </div>
+            <div class="form-group">
+                <label for="ak-input">Ak:</label>
+                <input type="number" id="ak-input" class="box">
+            </div>
+            <div class="form-group">
+                <label for="ak-mk2-input">Ak Mk2:</label>
+                <input type="number" id="ak-mk2-input" class="box">
+            </div>
+            <div class="form-group">
+                <label for="g3-input">G3:</label>
+                <input type="number" id="g3-input" class="box">
+            </div>
+            <div class="button-container">
+                <button class="history-button" onclick="irParaHistorico()">Histórico</button>
+                <button class="calculate-button" onclick="calcular()">Calcular</button>
+                <button class="table-button" onclick="irParaTabela()">Tabela</button>
+            </div>
+        </div>
+        <div id="result-container" class="result-container">
+            <div class="result-card">
+                <h2>Preço de Parceria:</h2>
+                <p id="parceria-price"></p>
+            </div>
+            <div class="result-card">
+                <h2>Preço de Tabela:</h2>
+                <p id="tabela-price"></p>
+            </div>
+            <div class="result-card">
+                <h2>Porcentagem de Venda:</h2>
+                <p id="porcentagem-price"></p>
+            </div>
+            <div class="button-container">
+                <button onclick="novoCalculo()">Novo Cálculo</button>
+            </div>
+        </div>
+        <div class="final-screen">
+            <p>Discord: <a href="https://discord.gg/TSx8HeuxxY">Yakuza</a></p>
+        </div>
+    </div>
+
+    <script>
+        function calcular() {
+            var fajuta = parseInt(document.getElementById("fajuta-input").value) || 0;
+            var fiveSeven = parseInt(document.getElementById("five-seven-input").value) || 0;
+            var mp5 = parseInt(document.getElementById("mp5-input").value) || 0;
+            var tec9 = parseInt(document.getElementById("tec-9-input").value) || 0;
+            var ak = parseInt(document.getElementById("ak-input").value) || 0;
+            var akMk2 = parseInt(document.getElementById("ak-mk2-input").value) || 0;
+            var g3 = parseInt(document.getElementById("g3-input").value) || 0;
+
+            var precoParceria = calcularPrecoParceria(fajuta, fiveSeven, mp5, tec9, ak, akMk2, g3);
+            var precoTabela = calcularPrecoTabela(fajuta, fiveSeven, mp5, tec9, ak, akMk2, g3);
+            var porcentagemVenda = calcularPorcentagemVendaTotal(precoTabela, 20);
+
+            document.getElementById("parceria-price").textContent = formatarValor(precoParceria);
+            document.getElementById("tabela-price").textContent = formatarValor(precoTabela);
+            document.getElementById("porcentagem-price").textContent = formatarValor(porcentagemVenda);
+
+            document.getElementById("form-container").style.display = "none";
+            document.getElementById("result-container").style.display = "block";
+        }
+
+        function novoCalculo() {
+            document.getElementById("form-container").style.display = "block";
+            document.getElementById("result-container").style.display = "none";
+            resetarValores();
+        }
+
+        function resetarValores() {
+            document.getElementById("fajuta-input").value = "";
+            document.getElementById("five-seven-input").value = "";
+            document.getElementById("mp5-input").value = "";
+            document.getElementById("tec-9-input").value = "";
+            document.getElementById("ak-input").value = "";
+            document.getElementById("ak-mk2-input").value = "";
+            document.getElementById("g3-input").value = "";
+        }
+
+        function calcularPrecoParceria(fajuta, fiveSeven, mp5, tec9, ak, akMk2, g3) {
+            var fajutaPrice = fajuta * 300;
+            var fiveSevenPrice = fiveSeven * 700;
+            var mp5Price = mp5 * 800;
+            var tec9Price = tec9 * 800;
+            var akPrice = ak * 900;
+            var akMk2Price = akMk2 * 1100;
+            var g3Price = g3 * 1200;
+
+            return fajutaPrice + fiveSevenPrice + mp5Price + tec9Price + akPrice + akMk2Price + g3Price;
+        }
+
+        function calcularPrecoTabela(fajuta, fiveSeven, mp5, tec9, ak, akMk2, g3) {
+            var fajutaPrice = fajuta * 400;
+            var fiveSevenPrice = fiveSeven * 800;
+            var mp5Price = mp5 * 900;
+            var tec9Price = tec9 * 900;
+            var akPrice = ak * 1000;
+            var akMk2Price = akMk2 * 1200;
+            var g3Price = g3 * 1300;
+
+            return fajutaPrice + fiveSevenPrice + mp5Price + tec9Price + akPrice + akMk2Price + g3Price;
+        }
+
+        function calcularPorcentagemVendaTotal(precoTabela, porcentagemVenda) {
+            return (precoTabela * porcentagemVenda) / 100;
+        }
+
+        function formatarValor(valor) {
+            return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+        }
+
+        function irParaTabela() {
+            window.location.href = "tabela.html";
+        }
+
+        function irParaHistorico() {
+            window.location.href = "historico.html";
+        }
+    </script>
+</body>
+
+</html>
