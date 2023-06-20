@@ -242,7 +242,7 @@
 
             var precoParceria = calcularPrecoParceria(fajuta, fiveSeven, mp5, tec9, ak, akMk2, g3);
             var precoTabela = calcularPrecoTabela(fajuta, fiveSeven, mp5, tec9, ak, akMk2, g3);
-            var porcentagemVenda = calcularPorcentagemVendaTotal(precoTabela, 20);
+            var porcentagemVenda = calcularPorcentagemVendaTotal(precoParceria, 20);
 
             document.getElementById("parceria-price").textContent = formatarValor(precoParceria);
             document.getElementById("tabela-price").textContent = formatarValor(precoTabela);
