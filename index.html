@@ -293,8 +293,10 @@
         }
 
         function calcularPorcentagemVendaTotal(precoParceria, porcentagemVenda) {
-            return (precoParceria * porcentagemVenda) * 15;
-        }
+    return (precoParceria * 15) / 100;
+}
+
+        
 
         function formatarValor(valor) {
             return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
