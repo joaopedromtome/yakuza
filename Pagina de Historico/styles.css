@@ -72,3 +72,12 @@ body {
     background-size: cover;
     background-position:  center;
 }
+
+.remover {
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+  }

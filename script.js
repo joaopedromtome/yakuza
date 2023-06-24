@@ -26,28 +26,40 @@ function calcular() {
   // Obtém a quantidade de balas-fines vendidas
   var balasFines = [];
   if (fajuta > 0) {
-    balasFines.push(fajuta + " Fajuta");
+      balasFines.push(fajuta + " Fajuta");
   }
   if (fiveSeven > 0) {
-    balasFines.push(fiveSeven + " Five-Seven");
+      balasFines.push(fiveSeven + " Five-Seven");
   }
   if (mp5 > 0) {
-    balasFines.push(mp5 + " MP5");
+      balasFines.push(mp5 + " MP5");
   }
   if (tec9 > 0) {
-    balasFines.push(tec9 + " Tec-9");
+      balasFines.push(tec9 + " Tec-9");
   }
   if (ak > 0) {
-    balasFines.push(ak + " Ak");
+      balasFines.push(ak + " Ak");
   }
   if (akMk2 > 0) {
-    balasFines.push(akMk2 + " Ak Mk2");
+      balasFines.push(akMk2 + " Ak Mk2");
   }
   if (g3 > 0) {
-    balasFines.push(g3 + " G3");
+      balasFines.push(g3 + " G3");
   }
 
+  document.getElementById("balas-fines-sold").textContent = balasFines.join(", ");
 
+  // Cria um objeto para representar a venda finalizada
+  var venda = {
+      detalhes: "Venda finalizada",
+      horario: new Date(),
+  };
+
+  // Adiciona a venda ao histórico
+  adicionarAoHistorico(venda);
+
+  // Envia o histórico de vendas
+  enviarHistoricoVendas();
 }
 
 function resetarValores() {
@@ -113,11 +125,11 @@ function adicionarAoHistorico(venda) {
 
   // Verifica se há um histórico de vendas existente
   if (historicoVendas) {
-    // Se existir, converte o histórico de vendas de JSON para um array
-    historicoVendas = JSON.parse(historicoVendas);
+      // Se existir, converte o histórico de vendas de JSON para um array
+      historicoVendas = JSON.parse(historicoVendas);
   } else {
-    // Se não existir, inicializa um novo array
-    historicoVendas = [];
+      // Se não existir, inicializa um novo array
+      historicoVendas = [];
   }
 
   // Adiciona a nova venda ao histórico de vendas
@@ -127,47 +139,8 @@ function adicionarAoHistorico(venda) {
   localStorage.setItem("historicoVendas", JSON.stringify(historicoVendas));
 }
 
-// Função para enviar as informações do histórico de vendas
+// Função para enviar o histórico de vendas para o servidor
 function enviarHistoricoVendas() {
-  // Obtém o histórico de vendas do armazenamento local
-  var historicoVendas = localStorage.getItem("historicoVendas");
-
-  // Verifica se há um histórico de vendas existente
-  if (historicoVendas) {
-    // Envia as informações do histórico de vendas para o servidor
-    // Substitua 'url-do-servidor' pela URL correta do servidor para enviar as informações
-    fetch("https://joaopedromtome.github.io/yakuza/Pagina%20de%20Historico/historico.html", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: historicoVendas,
-    })
-      .then(function (response) {
-        // Verifica se o envio foi bem-sucedido
-        if (response.ok) {
-          // Limpa o histórico de vendas no armazenamento local
-          localStorage.removeItem("historicoVendas");
-        } else {
-          // Trata o caso de falha no envio
-          console.log("Falha no envio do histórico de vendas.");
-        }
-      })
-      .catch(function (error) {
-        // Trata erros de conexão ou outros erros
-        console.log("Erro ao enviar o histórico de vendas:", error);
-      });
-  } else {
-    // Caso não haja um histórico de vendas, exibe uma mensagem ou realiza outra ação
-    console.log("Não há histórico de vendas para enviar.");
-  }
-}
-
-// Função para exibir o histórico de vendas
-function exibirHistorico() {
-  var historicoContainer = document.getElementById("historico-container");
-  historicoContainer.innerHTML = "";
-
   // Obtém o histórico de vendas do armazenamento local
   var historicoVendas = localStorage.getItem("historicoVendas");
 
@@ -200,3 +173,6 @@ function exibirHistorico() {
     historicoContainer.appendChild(mensagem);
   }
 }
+
+// Chama a função para exibir o histórico de vendas
+exibirHistorico();
