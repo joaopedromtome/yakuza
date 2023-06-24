@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yakuza - Gerente de Vendas</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Yakuza - Gerente de Vendas</h1>
+        <div id="form-container">
+            <div class="form-group">
+                <label for="fajuta-input">Fajuta:</label>
+                <input type="number" id="fajuta-input" class="box">
+            </div>
+            <div class="form-group">
+                <label for="five-seven-input">Five-Seven:</label>
+                <input type="number" id="five-seven-input" class="box">
+            </div>
+            <div class="form-group">
+                <label for="mp5-input">MP5:</label>
+                <input type="number" id="mp5-input" class="box">
+            </div>
+            <div class="form-group">
+                <label for="tec-9-input">Tec-9:</label>
+                <input type="number" id="tec-9-input" class="box">
+            </div>
+            <div class="form-group">
+                <label for="ak-input">Ak:</label>
+                <input type="number" id="ak-input" class="box">
+            </div>
+            <div class="form-group">
+                <label for="ak-mk2-input">Ak Mk2:</label>
+                <input type="number" id="ak-mk2-input" class="box">
+            </div>
+            <div class="form-group">
+                <label for="g3-input">G3:</label>
+                <input type="number" id="g3-input" class="box">
+            </div>
+            <div class="button-container">
+                <button class="history-button" onclick="irParaHistorico()">Histórico</button>
+                <button class="calculate-button" onclick="calcular()">Calcular</button>
+                <button class="table-button" onclick="irParaTabela()">Tabela</button>
+            </div>
+        </div>
+        <div id="result-container" class="result-container result-page">
+            <div class="result-card">
+                <h2>Preço de Parceria:</h2>
+                <p id="parceria-price"></p>
+            </div>
+            <div class="result-card">
+                <h2>Preço de Tabela:</h2>
+                <p id="tabela-price"></p>
+            </div>
+            <div class="result-card">
+                <h2 class="result-title">Porcentagem de Venda:</h2>
+                <p id="porcentagem-price" class="result-value"></p>
+            </div>
+            <div class="result-card">
+                <h2 class="result-title">Valor Total:</h2>
+                <p id="valor-total-price" class="result-value"></p>
+            </div>
+            <div class="result-card balas-fines-card">
+                <h2 class="result-title">Balas-Fines Vendidas:</h2>
+                <div id="balas-fines-sold" class="result-value balas-fines-value"></div>
+            </div>
+            <div class="result-card">
+                <h2 class="result-title">Horário da Venda:</h2>
+                <p id="horario-venda" class="result-value"></p>
+            </div>
+            <div class="button-container">
+                <button onclick="novoCalculo()">Novo Cálculo</button>
+            </div>
+        </div>
+        <div class="final-screen">
+            <p>Discord: <a href="https://discord.gg/TSx8HeuxxY">Yakuza</a></p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+
+    
+</body>
+
+</html>

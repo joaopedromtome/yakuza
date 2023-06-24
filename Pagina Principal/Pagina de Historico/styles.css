@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #45a049;
+}
+
+#historico-container {
+    margin-top: 20px;
+}
+
+.venda {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.venda h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.venda p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Adicionando imagem de fundo */
+body {
+    background-image: url("https://i.pinimg.com/originals/ac/4e/59/ac4e597e0f986b025f16b0a904b82dc8.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:  bottom;
+}

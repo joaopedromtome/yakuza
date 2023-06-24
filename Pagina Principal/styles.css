@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.box {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.box:focus {
+    border-color: blue;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    margin-right: 10px;
+}
+
+.result-container {
+    margin-top: 20px;
+    display: none;
+}
+
+.result-card {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.result-card h2 {
+    margin-bottom: 10px;
+}
+
+.final-screen {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+}
+
+/* Adicionando imagem de fundo */
+body {
+    background-image: url("https://i.pinimg.com/originals/fd/0a/27/fd0a27944665227e75acceaae7f92f10.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Estilo do botão de Tabela de Preços */
+.header-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo do botão Calcular */
+.calculate-button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calculate-button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo do botão Tabela */
+.table-button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.table-button:hover {
+    background-color: #45a049;
+}
+
+/* Alinhamento dos botões */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Estilo do Histórico */
+.history-button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.history-button:hover {
+    background-color: #45a049;
+}
+
+/* Botão de Novo Cálculo */
+.button-container button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos página de resultados */
+.result-page .result-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.result-page .result-card {
+    flex-basis: 50%;
+    margin-right: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.result-page .result-card:last-child {
+    margin-right: 0;
+}
+
+/* Estilo de sombreamento nos resultados */
+.result-page .result-card {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo de sombreamento no botão "Novo Cálculo" */
+.result-page .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+}
