@@ -47,12 +47,7 @@ function calcular() {
     balasFines.push(g3 + " G3");
   }
 
-  // Adiciona a venda ao histórico
-  var venda = {
-    detalhes: balasFines.join(", "),
-    horario: new Date()
-  };
-  adicionarAoHistorico(venda);
+
 }
 
 function resetarValores() {
@@ -130,6 +125,42 @@ function adicionarAoHistorico(venda) {
 
   // Salva o histórico de vendas atualizado no armazenamento local
   localStorage.setItem("historicoVendas", JSON.stringify(historicoVendas));
+}
+
+// Função para enviar as informações do histórico de vendas
+function enviarHistoricoVendas() {
+  // Obtém o histórico de vendas do armazenamento local
+  var historicoVendas = localStorage.getItem("historicoVendas");
+
+  // Verifica se há um histórico de vendas existente
+  if (historicoVendas) {
+    // Envia as informações do histórico de vendas para o servidor
+    // Substitua 'url-do-servidor' pela URL correta do servidor para enviar as informações
+    fetch("https://joaopedromtome.github.io/yakuza/Pagina%20de%20Historico/historico.html", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: historicoVendas,
+    })
+      .then(function (response) {
+        // Verifica se o envio foi bem-sucedido
+        if (response.ok) {
+          // Limpa o histórico de vendas no armazenamento local
+          localStorage.removeItem("historicoVendas");
+        } else {
+          // Trata o caso de falha no envio
+          console.log("Falha no envio do histórico de vendas.");
+        }
+      })
+      .catch(function (error) {
+        // Trata erros de conexão ou outros erros
+        console.log("Erro ao enviar o histórico de vendas:", error);
+      });
+  } else {
+    // Caso não haja um histórico de vendas, exibe uma mensagem ou realiza outra ação
+    console.log("Não há histórico de vendas para enviar.");
+  }
 }
 
 // Função para exibir o histórico de vendas
